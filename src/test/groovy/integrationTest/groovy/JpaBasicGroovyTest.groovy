@@ -8,21 +8,31 @@ import com.java.partTimeJob.member.domain.MemberRepository
 import org.joda.time.DateTime
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.context.ContextConfiguration
+import org.springframework.test.context.transaction.TransactionConfiguration
 import org.springframework.test.context.web.WebAppConfiguration
+import org.springframework.transaction.annotation.Transactional
 import org.springframework.util.Assert
+import spock.lang.Shared
 import spock.lang.Specification
+import spock.lang.Stepwise
+import spock.lang.Unroll
 
 /**
  * Created by Administrator on 2015-05-31.
  */
 @WebAppConfiguration
 @ContextConfiguration(classes = [RootApplicationContextConfig.class, RootDispatcherConfig.class])
+@Transactional
+@TransactionConfiguration(defaultRollback = true)
 class JpaBasicGroovyTest extends Specification {
 
     @Autowired
     MemberRepository memberRepository
 
-    def "JPA INSERT TEST"() {
+    @Shared
+    def Member resultMemberSaved;
+
+    def "JPA INSERT, DELETE TEST"() {
         setup:
         def Member member = new Member();
         member.setEmail("testEmail_2@test.com");
@@ -34,8 +44,10 @@ class JpaBasicGroovyTest extends Specification {
         member.setRegisted_at(new DateTime());
 
         when:
-        def Member resultMemberSaved = memberRepository.save(member);
+        resultMemberSaved = memberRepository.save(member);
         then:
         Assert.notNull(resultMemberSaved);
+        expect:
+        memberRepository.delete(resultMemberSaved.getId());
     }
 }
