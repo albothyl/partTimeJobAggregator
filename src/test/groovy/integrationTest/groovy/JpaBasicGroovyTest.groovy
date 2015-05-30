@@ -29,9 +29,6 @@ class JpaBasicGroovyTest extends Specification {
     @Autowired
     MemberRepository memberRepository
 
-    @Shared
-    def Member resultMemberSaved;
-
     def "JPA INSERT, DELETE TEST"() {
         setup:
         def Member member = new Member();
@@ -44,7 +41,7 @@ class JpaBasicGroovyTest extends Specification {
         member.setRegisted_at(new DateTime());
 
         when:
-        resultMemberSaved = memberRepository.save(member);
+        def resultMemberSaved = memberRepository.save(member);
         then:
         Assert.notNull(resultMemberSaved);
         expect:
