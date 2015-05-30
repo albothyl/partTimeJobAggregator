@@ -18,7 +18,7 @@ import java.sql.Date
 @Stepwise
 @Unroll
 @ContextConfiguration(classes = [RepositoryConfig.class])
-class DataBaseConnectionGroovyTest extends Specification {
+class DataBaseBasicTest extends Specification {
 
     @Autowired
     DataSource dataSource;

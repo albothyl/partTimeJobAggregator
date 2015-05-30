@@ -15,10 +15,16 @@ repositories {
 }
 
 def springVersion = '4.1.6.RELEASE'
+def springJpaVersion = '1.8.0.RELEASE'
 def spockVersion = '0.7-groovy-2.0'
 def mysqlVersion = '5.1.35'
 def guavaVersion = '18.0'
 def servletVersion = '3.1.0'
+def lombokVersion = '1.16.4'
+def hibernateJpaVersion = '1.0.1.Final'
+def hibernateEntitymanagerVersion = '4.1.9.Final'
+def hibernateCommonsAnnotationsVersion = '4.0.1.Final'
+def hibernateValidatorVersion = '4.3.1.Final'
 
 dependencies {
     compile "org.codehaus.groovy:groovy-all:2.3.11"
@@ -27,7 +33,16 @@ dependencies {
 
     compile "org.springframework:spring-webmvc:${springVersion}"
     compile "org.springframework:spring-context:${springVersion}"
+
     compile "org.springframework:spring-jdbc:${springVersion}"
+
+    compile "org.springframework.data:spring-data-jpa:${springJpaVersion}"
+    compile "org.springframework:spring-orm:${springJpaVersion}"
+    compile "org.hibernate.javax.persistence:hibernate-jpa-2.0-api:${hibernateJpaVersion}"
+    compile "org.hibernate:hibernate-entitymanager:${hibernateEntitymanagerVersion}"
+    compile "org.hibernate.common:hibernate-commons-annotations:${hibernateCommonsAnnotationsVersion}"
+    compile "org.hibernate:hibernate-validator:${hibernateValidatorVersion}"
+    compile "org.jadira.usertype:usertype.core:3.0.0.CR3"
 
     compile "mysql:mysql-connector-java:${mysqlVersion}"
 
@@ -35,6 +50,7 @@ dependencies {
 
     compile "com.google.guava:guava:${guavaVersion}"
     compile "joda-time:joda-time:2.3"
+    compile "org.projectlombok:lombok:${lombokVersion}"
 
     testCompile "org.springframework:spring-test:${springVersion}"
 
