@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+       <comment>dataSource - develop</comment>
+       <entry key="partTimeJob.mysql.jdbc.url">jdbc:mysql://127.0.0.1:3306/partTimeJob?useUnicode=true&amp;characterEncoding=UTF8</entry>
+       <entry key="partTimeJob.mysql.jdbc.username">wowman</entry>
+       <entry key="partTimeJob.mysql.jdbc.password">1q2w3e!</entry>
+</properties>
