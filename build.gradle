@@ -6,6 +6,7 @@ apply plugin: 'java'
 apply plugin: 'war'
 apply plugin: 'eclipse-wtp'
 apply plugin: 'idea'
+apply plugin: 'sonar-runner'
 
 compileJava.options.encoding = 'UTF-8'
 sourceCompatibility = 1.8
@@ -78,4 +79,18 @@ flyway {
     schemas = ['partTimeJob']
     table = 'flyway_migration_history'
     encoding = 'UTF8'
+}
+
+sonarRunner {
+    toolVersion = '2.4'
+    sonarProperties {
+        property "sonar.host.url", "http://localhost:9000"
+        property "sonar.jdbc.url", "jdbc:mysql://localhost:3306/parttimejob"
+        property "sonar.jdbc.driverClassName", "com.mysql.jdbc.Driver"
+        property "sonar.jdbc.username", "wowman"
+        property "sonar.jdbc.password", "1q2w3e!"
+    }
+    forkOptions {
+        maxHeapSize = '768m'
+    }
 }
