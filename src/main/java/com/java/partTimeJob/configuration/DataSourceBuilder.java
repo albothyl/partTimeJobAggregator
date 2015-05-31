@@ -12,17 +12,17 @@ import org.springframework.jdbc.datasource.SimpleDriverDataSource;
  */
 public class DataSourceBuilder {
 
-    private static final String URL = "partTimeJob.mysql.jdbc.url";
-    private static final String USER_NAME = "partTimeJob.mysql.jdbc.username";
-    private static final String USER_PASSWORD = "partTimeJob.mysql.jdbc.password";
+	private static final String URL = "partTimeJob.mysql.jdbc.url";
+	private static final String USER_NAME = "partTimeJob.mysql.jdbc.username";
+	private static final String USER_PASSWORD = "partTimeJob.mysql.jdbc.password";
 
-    public DataSource build(Environment environment) throws SQLException {
-        SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
-        dataSource.setDriver(new com.mysql.jdbc.Driver());
-        dataSource.setUrl(environment.getProperty(URL));
-        dataSource.setUsername(environment.getProperty(USER_NAME));
-        dataSource.setPassword(environment.getProperty(USER_PASSWORD));
+	public DataSource build(Environment environment) throws SQLException {
+		SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
+		dataSource.setDriver(new com.mysql.jdbc.Driver());
+		dataSource.setUrl(environment.getProperty(URL));
+		dataSource.setUsername(environment.getProperty(USER_NAME));
+		dataSource.setPassword(environment.getProperty(USER_PASSWORD));
 
-        return dataSource;
-    }
+		return dataSource;
+	}
 }

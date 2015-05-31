@@ -2,7 +2,6 @@ package com.java.partTimeJob.configuration;
 
 import java.beans.PropertyVetoException;
 import java.sql.SQLException;
-import java.util.Properties;
 
 import javax.sql.DataSource;
 
@@ -25,28 +24,28 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableJpaRepositories("com.java.partTimeJob")
 @PropertySource("classpath:dataSource/develop.xml")
 public class RepositoryConfig {
-    @Autowired
-    private Environment environment;
+	@Autowired
+	private Environment environment;
 
-    @Bean
-    public DataSource dataSource() throws SQLException {
-     return new DataSourceBuilder().build(environment);
-    }
+	@Bean
+	public DataSource dataSource() throws SQLException {
+		return new DataSourceBuilder().build(environment);
+	}
 
-    @Bean
-    public HibernateJpaVendorAdapter jpaVendorAdapter() {
-        return new HibernateJpaVendorAdapter();
-    }
+	@Bean
+	public HibernateJpaVendorAdapter jpaVendorAdapter() {
+		return new HibernateJpaVendorAdapter();
+	}
 
-    @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory() throws SQLException {
-       return new EntityManagerFactory().build(environment, dataSource(), jpaVendorAdapter());
-    }
+	@Bean
+	public LocalContainerEntityManagerFactoryBean entityManagerFactory() throws SQLException {
+		return new EntityManagerFactory().build(environment, dataSource(), jpaVendorAdapter());
+	}
 
-    @Bean
-    public JpaTransactionManager transactionManager() throws PropertyVetoException, SQLException{
-        JpaTransactionManager jpaTransactionManager = new JpaTransactionManager();
-        jpaTransactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
-        return jpaTransactionManager;
-    }
+	@Bean
+	public JpaTransactionManager transactionManager() throws PropertyVetoException, SQLException {
+		JpaTransactionManager jpaTransactionManager = new JpaTransactionManager();
+		jpaTransactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
+		return jpaTransactionManager;
+	}
 }
