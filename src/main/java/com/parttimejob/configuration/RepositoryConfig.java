@@ -1,6 +1,5 @@
-package com.java.partTimeJob.configuration;
+package com.parttimejob.configuration;
 
-import java.beans.PropertyVetoException;
 import java.sql.SQLException;
 
 import javax.sql.DataSource;
@@ -21,7 +20,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories("com.java.partTimeJob")
+@EnableJpaRepositories("com.parttimejob")
 @PropertySource("classpath:dataSource/develop.xml")
 public class RepositoryConfig {
 	@Autowired
@@ -43,7 +42,7 @@ public class RepositoryConfig {
 	}
 
 	@Bean
-	public JpaTransactionManager transactionManager() throws PropertyVetoException, SQLException {
+	public JpaTransactionManager transactionManager() throws SQLException {
 		JpaTransactionManager jpaTransactionManager = new JpaTransactionManager();
 		jpaTransactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
 		return jpaTransactionManager;

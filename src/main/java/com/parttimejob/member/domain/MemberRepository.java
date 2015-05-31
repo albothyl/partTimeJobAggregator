@@ -1,4 +1,4 @@
-package com.java.partTimeJob.member.domain;
+package com.parttimejob.member.domain;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

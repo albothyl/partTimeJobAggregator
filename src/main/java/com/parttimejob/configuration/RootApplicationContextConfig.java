@@ -1,4 +1,4 @@
-package com.java.partTimeJob.configuration;
+package com.parttimejob.configuration;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -9,6 +9,6 @@ import org.springframework.context.annotation.Import;
  */
 @Configuration
 @Import(RepositoryConfig.class)
-@ComponentScan(basePackages = { "com.java.partTimeJob" })
+@ComponentScan(basePackages = { "com.parttimejob" })
 public class RootApplicationContextConfig {
 }

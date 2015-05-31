@@ -1,10 +1,10 @@
 package integrationTest.groovy
 
-import com.java.partTimeJob.configuration.RootApplicationContextConfig
-import com.java.partTimeJob.configuration.RootDispatcherConfig
-import com.java.partTimeJob.member.Grade
-import com.java.partTimeJob.member.domain.Member
-import com.java.partTimeJob.member.domain.MemberRepository
+import com.parttimejob.configuration.RootApplicationContextConfig
+import com.parttimejob.configuration.RootDispatcherConfig
+import com.parttimejob.member.Grade
+import com.parttimejob.member.domain.Member
+import com.parttimejob.member.domain.MemberRepository
 import org.joda.time.DateTime
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.context.ContextConfiguration
@@ -32,10 +32,10 @@ class JpaBasicGroovyTest extends Specification {
 		member.setEmail("testEmail_2@test.com")
 		member.setPassword("testPassword_2")
 		member.setName("testName_2")
-		member.setNick_name("testNickName_2")
+		member.setNickName("testNickName_2")
 		member.setGrade(Grade.GOLD)
-		member.setUpdated_at(new DateTime())
-		member.setRegisted_at(new DateTime())
+		member.setUpdatedAt(new DateTime())
+		member.setRegistedAt(new DateTime())
 
 		when:
 		def resultMemberSaved = memberRepository.save(member)

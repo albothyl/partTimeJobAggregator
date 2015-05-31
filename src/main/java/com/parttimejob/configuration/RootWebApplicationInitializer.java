@@ -1,4 +1,4 @@
-package com.java.partTimeJob.configuration;
+package com.parttimejob.configuration;
 
 import javax.servlet.FilterRegistration;
 import javax.servlet.ServletContext;

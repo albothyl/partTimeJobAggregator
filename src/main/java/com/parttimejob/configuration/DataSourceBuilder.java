@@ -1,4 +1,4 @@
-package com.java.partTimeJob.configuration;
+package com.parttimejob.configuration;
 
 import java.sql.SQLException;
 

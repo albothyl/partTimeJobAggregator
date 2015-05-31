@@ -1,4 +1,4 @@
-package com.java.partTimeJob.member.domain;
+package com.parttimejob.member.domain;
 
 import javax.persistence.*;
 
@@ -12,7 +12,7 @@ import org.joda.time.DateTime;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
-import com.java.partTimeJob.member.Grade;
+import com.parttimejob.member.Grade;
 
 /**
  * Created by Administrator on 2015-05-31.
@@ -31,13 +31,13 @@ public class Member {
 	private String email;
 	private String password;
 	private String name;
-	private String nick_name;
+	private String nickName;
 	@Enumerated(EnumType.STRING)
 	private Grade grade;
 	@LastModifiedDate
 	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
-	private DateTime updated_at;
+	private DateTime updatedAt;
 	@CreatedDate
 	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
-	private DateTime registed_at;
+	private DateTime registedAt;
 }

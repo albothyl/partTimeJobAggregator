@@ -1,6 +1,6 @@
 package integrationTest.groovy
 
-import com.java.partTimeJob.configuration.RepositoryConfig
+import com.parttimejob.configuration.RepositoryConfig
 import org.junit.Assert
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.context.ContextConfiguration
@@ -26,7 +26,7 @@ class DataBaseBasicTest extends Specification {
 		setup:
 		def Date now = new Date(2015, 05, 15)
 		def connection = dataSource.getConnection();
-		def preparedStatement = connection.prepareStatement("INSERT INTO partTimeJob.MEMBER (email, password, name, nick_name, grade, updated_at, registed_at) VALUES(?,?,?,?,?,?,?)")
+		def preparedStatement = connection.prepareStatement("INSERT INTO parttimejob.MEMBER (email, password, name, nickName, grade, updatedAt, registedAt) VALUES(?,?,?,?,?,?,?)")
 		preparedStatement.setString(1, "testEmail@test.com")
 		preparedStatement.setString(2, "testPassword")
 		preparedStatement.setString(3, "testName")
@@ -47,7 +47,7 @@ class DataBaseBasicTest extends Specification {
 	def "데이터베이스 딜리트 테스트"() {
 		setup:
 		def connection = dataSource.getConnection()
-		def preparedStatement = connection.prepareStatement("DELETE FROM partTimeJob.MEMBER WHERE EMAIL = ?")
+		def preparedStatement = connection.prepareStatement("DELETE FROM parttimejob.MEMBER WHERE EMAIL = ?")
 		preparedStatement.setString(1, "testEmail@test.com")
 
 		def resultLowCount = preparedStatement.executeUpdate()

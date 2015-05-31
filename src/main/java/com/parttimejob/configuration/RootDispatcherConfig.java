@@ -1,4 +1,4 @@
-package com.java.partTimeJob.configuration;
+package com.parttimejob.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -16,7 +16,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = { "com.java.partTimeJob" })
+@ComponentScan(basePackages = { "com.parttimejob" })
 public class RootDispatcherConfig extends WebMvcConfigurerAdapter {
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
