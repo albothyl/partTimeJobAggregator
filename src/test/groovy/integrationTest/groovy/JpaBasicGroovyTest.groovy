@@ -28,20 +28,20 @@ class JpaBasicGroovyTest extends Specification {
 
 	def "JPA INSERT, DELETE TEST"() {
 		setup:
-		def Member member = new Member();
-		member.setEmail("testEmail_2@test.com");
-		member.setPassword("testPassword_2");
-		member.setName("testName_2");
-		member.setNick_name("testNickName_2");
-		member.setGrade(Grade.GOLD);
-		member.setUpdated_at(new DateTime());
-		member.setRegisted_at(new DateTime());
+		def Member member = new Member()
+		member.setEmail("testEmail_2@test.com")
+		member.setPassword("testPassword_2")
+		member.setName("testName_2")
+		member.setNick_name("testNickName_2")
+		member.setGrade(Grade.GOLD)
+		member.setUpdated_at(new DateTime())
+		member.setRegisted_at(new DateTime())
 
 		when:
-		def resultMemberSaved = memberRepository.save(member);
+		def resultMemberSaved = memberRepository.save(member)
 		then:
-		Assert.notNull(resultMemberSaved);
+		Assert.notNull(resultMemberSaved)
 		expect:
-		memberRepository.delete(resultMemberSaved.getId());
+		memberRepository.delete(resultMemberSaved.getId())
 	}
 }
